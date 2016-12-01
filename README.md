@@ -40,3 +40,8 @@
 
    安装tensorflow。
 语料库：使用的是搜狗语料库，搜索SogouC.reduced可找到下载连接。
+
+使用方法：
+1、使用process_data_cn.py对文本进行分词
+2、使用process_data.py对分词后的文本做进一步的处理：打lable、统计词频等过程，最终生成一个mr.p的序列化文件
+3、使用sentence_classfier_with_tensorflow.py训练CNN模型
