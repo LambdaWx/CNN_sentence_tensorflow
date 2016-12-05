@@ -205,14 +205,13 @@ for i in range(num_steps):
         feed_dict={x_in: batch_x, y_in: batch_y, keep_prob: 0.5}
         _, step, summaries = sess.run([train_step, global_step, train_summary_op],feed_dict)
         train_summary_writer.add_summary(summaries, step)
-    print batch_x[0]
-    print batch_y[0]
+    #print batch_x[0]
+    #print batch_y[0]
     train_accuracy = accuracy.eval(feed_dict={x_in:batch_x_test, y_in: batch_y_test, keep_prob: 1.0})
+    current_step = tf.train.global_step(sess, global_step)
     print "step %d, training accuracy %g"%(i, train_accuracy)
-    if i%100 == 0 and i > 0:
-        current_step = tf.train.global_step(sess, global_step)
-        path = saver.save(sess, checkpoint_prefix, global_step=current_step)
-        print("Saved model checkpoint to {}\n".format(path)) 
+    path = saver.save(sess, checkpoint_prefix, global_step=current_step)
+    print("Saved model checkpoint to {}\n".format(path)) 
 
 """
 #下次调用
