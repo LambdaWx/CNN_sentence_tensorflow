@@ -34,7 +34,7 @@
 
    Python环境
 
-   安装结巴分析的python版本
+   安装结巴分词的python版本
 
    安装numpy、pandas等一系列科学计算相关库
 
